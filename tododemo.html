@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <style>
-        
+     <style>
         .taskdone span {
             text-decoration: line-through;
         }
     </style>
 </head>
+
 <body>
     
     <h3>To do list</h3>
+    
     <div>
         <input type="text" id="inpfield" placeholder="Add a task">
         <button onclick="addTask()">Add</button>
+    </div>
+
+    <div>
+        Total: <span id="totalTask">0</span>
+        Done: <span id="doneTask">0</span>
+        Remaining: <span id="remTask">0</span>
     </div>
 
     <div id="task_body">
@@ -45,12 +53,14 @@
             // strikethrough function
             checkBox.onchange = function (){
                 if(checkBox.checked){
-                    taskDiv.classList.add("taskdone");
+                    textSpan.style.textDecoration = "line-through";
+                    //taskDiv.classList.add("taskdone");
                 }
                 else{
-                    taskDiv.classList.remove("taskdone");
+                    textSpan.style.textDecoration = "none";
+                    //taskDiv.classList.remove("taskdone");
                 }
-
+                taskCounter(); // fires counter after adding
             };
             const textSpan = document.createElement("span");
             textSpan.textContent = inptxt;
@@ -60,7 +70,9 @@
             dltbtn.textContent = "delete";
             dltbtn.onclick = function(){
                 taskDiv.remove();
-            }
+                
+                taskCounter();
+            };
 
             taskDiv.appendChild(checkBox);
             taskDiv.appendChild(textSpan);
@@ -70,7 +82,24 @@
 
             inpfld.value = "";
         }
-        
+        function taskCounter(){
+            const totaltsk = document.getElementsByClassName("taskdiv").length; // get all taskdiv which is essentially the task, meaning including ckbox, text, buttons.
+            let remaingtsk = 0;
+            const allCkbox = document.querySelectorAll('.taskDiv input[type = "checkbox"]'); // selecting only checkbox items, regardless on or off.
+            
+            let compCkbox = 0;
+            for(i=0;i<allCkbox.length;i++){
+                if(checkBox[i].checked){
+                    compCkbox++;
+                }
+            }
+
+            remaingtsk = totaltsk - compCkbox
+
+            document.getElementById("totalTask").textContent = total;
+            document.getElementById("doneTask").textContent = completed;
+            document.getElementById("remTask").textContent = remaining;
+        }
 
     </script>
 
