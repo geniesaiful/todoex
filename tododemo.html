@@ -19,7 +19,6 @@
     <div id="task_body">
         <p id="noTask">Empty</p>
     </div>
-
     <script>
         function addTask(){
             const taskBody = document.getElementById("task_body");
@@ -56,9 +55,17 @@
             const textSpan = document.createElement("span");
             textSpan.textContent = inptxt;
 
+            // delete a task with button
+            const dltbtn = document.createElement("button");
+            dltbtn.textContent = "delete";
+            dltbtn.onclick = function(){
+                taskDiv.remove();
+            }
+
             taskDiv.appendChild(checkBox);
             taskDiv.appendChild(textSpan);
-
+            taskDiv.appendChild(dltbtn);
+            
             taskBody.appendChild(taskDiv);
 
             inpfld.value = "";
