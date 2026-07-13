@@ -2,11 +2,7 @@
 <html>
 
 <head>
-     <style>
-        .taskdone span {
-            text-decoration: line-through;
-        }
-    </style>
+<link rel="stylesheet" href="todostyle.css">
 </head>
 
 <body onload="loadTasks()">
@@ -14,7 +10,7 @@
     <h3>To do list</h3>
     
     <div>
-        <!-- ADDED: onkeydown attribute to check for the Enter key -->
+        <!--: onkeydown attribute to check for the Enter key -->
         <input type="text" id="inpfield" placeholder="Add a task" onkeydown="if(event.key === 'Enter') addTask()">
         <button onclick="addTask()">Add</button>
     </div>
