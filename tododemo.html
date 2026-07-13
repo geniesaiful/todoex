@@ -9,12 +9,13 @@
     </style>
 </head>
 
-<body>
+<body onload="loadTasks()">
     
     <h3>To do list</h3>
     
     <div>
-        <input type="text" id="inpfield" placeholder="Add a task">
+        <!-- ADDED: onkeydown attribute to check for the Enter key -->
+        <input type="text" id="inpfield" placeholder="Add a task" onkeydown="if(event.key === 'Enter') addTask()">
         <button onclick="addTask()">Add</button>
     </div>
 
@@ -27,69 +28,48 @@
     <div id="task_body">
         <p id="noTask">Empty</p>
     </div>
+
     <script>
-        function taskCounter(){
-            const totaltsk = document.getElementsByClassName("taskDiv").length; // get all taskdiv which is essentially the task, meaning including ckbox, text, buttons.
-            let remaingtsk = 0;
-            const allCkbox = document.querySelectorAll('.taskDiv input[type = "checkbox"]'); // selecting only checkbox items, regardless on or off.
-            console.log(taskCounter);
-            let compCkbox = 0;
-            for(i=0;i<allCkbox.length;i++){
-                if(allCkbox[i].checked){
-                    compCkbox++;
-                }
-            }
-
-            remaingtsk = totaltsk - compCkbox;
-
-            document.getElementById("totalTask").textContent = totaltsk;
-            document.getElementById("doneTask").textContent = compCkbox;
-            document.getElementById("remTask").textContent = remaingtsk;
-        }
-
-        function addTask(){
+        function createRow(text, isChecked) {
             const taskBody = document.getElementById("task_body");
-
-            const inpfld = document.getElementById("inpfield");
-            const inptxt = inpfld.value.trim();
             
-            // preventing empty task
-            if (inptxt === "") {
-                alert("Write something!");
-                return;
-            }
-            // Show No task available.
             const noTaskMsg = document.getElementById("noTask");
             if(noTaskMsg){
                 noTaskMsg.remove();
             }
-            
+
             const taskDiv = document.createElement("div");
             taskDiv.className = "taskDiv";
             
             const checkBox = document.createElement("input");
             checkBox.type = "checkbox";
-            // strikethrough function
+            checkBox.checked = isChecked;
+
+            const textSpan = document.createElement("span");
+            textSpan.textContent = text;
+            
+            if (isChecked) {
+                textSpan.style.textDecoration = "line-through";
+            }
+
             checkBox.onchange = function (){
                 if(checkBox.checked){
                     textSpan.style.textDecoration = "line-through";
-                    //taskDiv.classList.add("taskdone");
                 }
                 else{
                     textSpan.style.textDecoration = "none";
-                    //taskDiv.classList.remove("taskdone");
                 }
-                taskCounter(); // fires counter after checkbox action
+                taskCounter(); 
             };
-            const textSpan = document.createElement("span");
-            textSpan.textContent = inptxt;
 
-            // delete a task with button
             const dltbtn = document.createElement("button");
             dltbtn.textContent = "delete";
             dltbtn.onclick = function(){
                 taskDiv.remove();
                 
+                if (taskBody.children.length === 0) {
+                    taskBody.innerHTML = '<p id="noTask">Empty</p>';
+                }
                 taskCounter();
             };
 
@@ -98,19 +78,57 @@
             taskDiv.appendChild(dltbtn);
             
             taskBody.appendChild(taskDiv);
-            
-            inpfld.value = "";
-
-            taskCounter(); // update counter
         }
-        
 
+        function addTask(){
+            const inpfld = document.getElementById("inpfield");
+            const inptxt = inpfld.value.trim();
+            
+            if (inptxt === "") {
+                alert("Write something!");
+                return;
+            }
+            
+            createRow(inptxt, false);
+            
+            taskCounter();
+            inpfld.value = "";
+        }
+
+        function taskCounter(){
+            const totaltsk = document.getElementsByClassName("taskDiv").length; 
+            const allCkbox = document.querySelectorAll('.taskDiv input[type = "checkbox"]'); 
+            
+            let compCkbox = 0;
+            const saveArray = [];
+            
+            for(let i=0; i<allCkbox.length; i++){
+                if(allCkbox[i].checked){
+                    compCkbox++;
+                }
+                const spanText = allCkbox[i].parentElement.querySelector("span").textContent;
+                saveArray.push({ text: spanText, checked: allCkbox[i].checked });
+            }
+
+            localStorage.setItem("savedList", JSON.stringify(saveArray));
+
+            const remaingtsk = totaltsk - compCkbox;
+
+            document.getElementById("totalTask").textContent = totaltsk;
+            document.getElementById("doneTask").textContent = compCkbox;
+            document.getElementById("remTask").textContent = remaingtsk;
+        }
+
+        function loadTasks() {
+            const rawData = localStorage.getItem("savedList");
+            if (!rawData) return; 
+            
+            const parsedArray = JSON.parse(rawData);
+            for (let i = 0; i < parsedArray.length; i++) {
+                createRow(parsedArray[i].text, parsedArray[i].checked);
+            }
+            taskCounter();
+        }
     </script>
-
-
-
-
-
-
 </body>   
 </html>
