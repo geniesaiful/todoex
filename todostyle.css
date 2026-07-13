@@ -18,7 +18,8 @@
     flex-grow: 1;
 }
 #statusDiv{
-    /*display: flex;*/
+    display: flex;
+    justify-content: space-between ;
     width: 300px;
     padding-bottom: 8px;
     text-align: center;
