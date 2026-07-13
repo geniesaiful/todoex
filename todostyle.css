@@ -1,8 +1,29 @@
-h3 {
-  color: navy;
-  margin-left: 20px;
-  background: rgba(0, 128, 0, 0.3);
+.taskDiv{
+    display: flex;
+    align-items: center;
+    width: 300px;       
+    margin-top: 4px;
 }
-button {
-    margin: 10px;
+.todotextspan{
+    margin-left: 8px;    
+    flex-grow: 1;         
+}
+
+#inputDiv{
+    display: flex;
+    padding-bottom: 8px;
+    width: 300px;
+}
+#inpfield{
+    flex-grow: 1;
+}
+#statusDiv{
+    /*display: flex;*/
+    width: 300px;
+    padding-bottom: 8px;
+    text-align: center;
+}
+.statusNums{
+    padding-left: 4px;
+    padding-right: 4px;
 }

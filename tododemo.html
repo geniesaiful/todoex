@@ -9,16 +9,16 @@
     
     <h3>To do list</h3>
     
-    <div>
+    <div id="inputDiv">
         <!--: onkeydown attribute to check for the Enter key -->
         <input type="text" id="inpfield" placeholder="Add a task" onkeydown="if(event.key === 'Enter') addTask()">
         <button onclick="addTask()">Add</button>
     </div>
 
-    <div>
-        Total: <span id="totalTask">0</span>
-        Done: <span id="doneTask">0</span>
-        Remaining: <span id="remTask">0</span>
+    <div id="statusDiv">
+        <span>Total:</span><span class="statusNums" id="totalTask">0</span>
+        <span>Done:</span><span class="statusNums" id="doneTask">0</span>
+        <span>Remaining:</span><span class="statusNums" id="remTask">0</span>
     </div>
 
     <div id="task_body">
@@ -43,7 +43,7 @@
 
             const textSpan = document.createElement("span");
             textSpan.textContent = text;
-            
+            textSpan.className = "todotextspan"; // Gave a class name so that can be targetet.
             if (isChecked) {
                 textSpan.style.textDecoration = "line-through";
             }
