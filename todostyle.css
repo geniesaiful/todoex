@@ -1,30 +1,41 @@
+h2{
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#inputDiv{
+    display: flex;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+#inpfield{
+    flex-grow: 1;
+    
+}
+#statusDiv{
+    display: flex;
+    justify-content: space-between ;
+    text-align: center;
+    width: 300px;
+    background-color: bisque;
+    border: 2px solid lightgoldenrodyellow;
+    border-radius: 6px;
+}
+#task_body{
+    width: 303px;
+    background-color: aqua;
+    
+}
 .taskDiv{
     display: flex;
     align-items: center;
     width: 300px;       
     margin-top: 4px;
+    background-color:azure;
 }
 .todotextspan{
     margin-left: 8px;    
-    flex-grow: 1;         
-}
-
-#inputDiv{
-    display: flex;
-    padding-bottom: 8px;
-    width: 300px;
-}
-#inpfield{
     flex-grow: 1;
-}
-#statusDiv{
-    display: flex;
-    justify-content: space-between ;
-    width: 300px;
-    padding-bottom: 8px;
-    text-align: center;
-}
-.statusNums{
-    padding-left: 4px;
-    padding-right: 4px;
+             
 }
