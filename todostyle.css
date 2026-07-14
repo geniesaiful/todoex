@@ -1,9 +1,12 @@
+*{
+    box-sizing: border-box;
+}
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    background-color:aqua;
 }
 
 h2.header2{
@@ -16,8 +19,11 @@ h2.header2{
 #inputDiv{
     display: flex;
     width: 300px;
+    border: 1px solid aqua;
+    border-radius: 2px;
+    padding: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
+
 }
 #inpfield{
     flex-grow: 1;
@@ -28,9 +34,9 @@ h2.header2{
     justify-content: space-between ;
     text-align: center;
     width: 300px;
-    background-color: lightblue;
     border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding:2px;
 }
 .statusElementDiv{
     display: flex;
@@ -39,16 +45,15 @@ h2.header2{
     border-color:azure;
     border-width: 1px;
     border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.18);
     background-color: aqua;
-    padding-right: 5%;
-    padding-left: 5%;
+    padding: 0px 8px 0 8px;
 }
 
 #task_body{
-    width: 300px;
+    /*width: 300px;*/
     background-color: aqua;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 }
 .taskDiv{
     display: flex;
@@ -56,6 +61,7 @@ h2.header2{
     width: 300px;       
     margin-top: 4px;
     background-color:azure;
+    padding: 2px;
    
 }
 .todotextspan{
