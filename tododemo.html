@@ -17,16 +17,25 @@
 
     <div id="statusDiv">
         <div class="statusElementDiv">
-            <span>Total</span>
-            <span class="statusNums" id="totalTask">0</span>
+            <img class="statusIcon" src="icons8-to-do-48.png">
+            <div class="statusColumn">
+                <span>Total</span>
+                <span class="statusNums" id="totalTask">0</span>
+            </div>
         </div>
         <div class="statusElementDiv">
-            <span>Done</span>
-            <span class="statusNums" id="doneTask">0</span>
+            <img class="statusIcon" src="icons8-task-completed-48.png">
+            <div class="statusColumn">    
+                <span>Done</span>
+                <span class="statusNums" id="doneTask">0</span>
+            </div>
         </div>
         <div class="statusElementDiv">
-            <span>Remaining</span>
-            <span class="statusNums" id="remTask">0</span>
+            <img class="statusIcon" src="icons8-remind-50.png">
+            <div class="statusColumn">
+                <span>Remaining</span>
+                <span class="statusNums" id="remTask">0</span>
+            </div>
         </div>
         <!-- Total:<span class="statusNums" id="totalTask">0</span> 
         Done:<span class="statusNums" id="doneTask">0</span>
@@ -71,8 +80,10 @@
                 taskCounter(); 
             };
 
-            const dltbtn = document.createElement("button");
-            dltbtn.textContent = "delete";
+            const dltbtn = document.createElement("img");
+            dltbtn.src = "icons8-trash-50.svg";
+            //dltbtn.textContent = "delete";
+            dltbtn.className = "deleteBtn";
             dltbtn.onclick = function(){
                 taskDiv.remove();
                 
