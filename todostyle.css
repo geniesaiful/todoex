@@ -6,8 +6,11 @@ body{
     background-color: aqua;
 }
 
-h2{
+h2.header2{
+    display: flex;
+    flex-direction: column;
     width: 300px;
+    align-items: center;
 }
 
 #inputDiv{
@@ -25,19 +28,27 @@ h2{
     justify-content: space-between ;
     text-align: center;
     width: 300px;
-    background-color: bisque;
-    border: 2px solid lightgoldenrodyellow;
-    border-radius: 6px;
+    background-color: lightblue;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .statusElementDiv{
     display: flex;
     flex-direction: column;
+    border-style: solid;
+    border-color:azure;
+    border-width: 1px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
+    background-color: aqua;
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
 #task_body{
-    width: 303px;
+    width: 300px;
     background-color: aqua;
-    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .taskDiv{
     display: flex;
@@ -45,6 +56,7 @@ h2{
     width: 300px;       
     margin-top: 4px;
     background-color:azure;
+   
 }
 .todotextspan{
     margin-left: 8px;    
