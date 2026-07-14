@@ -12,13 +12,13 @@ body{
 h2.header2{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 500px;
     align-items: center;
 }
 
 #inputDiv{
     display: flex;
-    width: 300px;
+    width: 500px;
     border: 1px solid aqua;
     border-radius: 2px;
     padding: 15px;
@@ -33,7 +33,7 @@ h2.header2{
     display: flex;
     justify-content: space-between ;
     text-align: center;
-    width: 300px;
+    width: 500px;
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding:2px;
@@ -47,7 +47,7 @@ h2.header2{
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.18);
     background-color: aqua;
-    padding: 0px 8px 0 8px;
+    padding: 0px 12px 0 12px;
 }
 
 #task_body{
@@ -56,16 +56,16 @@ h2.header2{
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 }
 #taskBodyHead{
-    background-color: bisque;
+    background-color:azure;
     padding: 4px;
     text-align: center;
 }
 .taskDiv{
     display: flex;
     align-items: center;
-    width: 300px;       
+    width: 500px;       
     margin-top: 4px;
-    padding: 2px;
+    padding: 10px;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
    
 }
