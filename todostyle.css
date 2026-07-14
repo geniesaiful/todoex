@@ -37,11 +37,14 @@ h2.header2{
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding:2px;
+    gap: 8px; /*gap between elements */
 }
 .statusElementDiv{
     display: flex;
+    flex: 1; /* forces all boxes has same width*/
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     border-style: solid;
     border-color:azure;
     border-width: 1px;
