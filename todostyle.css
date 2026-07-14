@@ -105,9 +105,13 @@ h2.header2{
     word-break: break-word; /* prevents the extremely long word problem */
              
 }
+.editBtn{
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
 .deleteBtn {
     width: 20px;          
     height: 20px;         
-/*    margin-left: auto;    /* Pushes the icon to the far right of the task row */
-
+/*    margin-left: auto;    /* Pushes the icon to the far right of the task row *
 }

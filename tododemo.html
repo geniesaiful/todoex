@@ -68,6 +68,8 @@
             const textSpan = document.createElement("span");
             textSpan.textContent = text;
             textSpan.className = "todotextspan"; // Gave a class name so that can be targetet.
+            
+            // check on the loading time
             if (isChecked) {
                 textSpan.style.textDecoration = "line-through";
             }
@@ -81,11 +83,52 @@
                 }
                 taskCounter(); 
             };
+            
+            
+            const editBtn = document.createElement("img");
+            editBtn.src = "icons8-edit-50.png";
+            editBtn.className="editBtn";
 
+            editBtn.onclick = function(){
+                const doneBtn = document.createElement("button");
+                doneBtn.className="doneButton";
+                doneBtn.textContent="done";
+                //editBtn.innerHTML = "Done";
+                const editInput = document.createElement("input");
+                editInput.type = "text";
+                editInput.className = "editInput";
+                editInput.value = textSpan.textContent;
+                //console.log(editInput.value,textSpan);
+                textSpan.replaceWith(editInput); // span is replaced with the input field
+                editBtn.replaceWith(doneBtn); 
+                //let newText="";
+                //console.log("came here");
+                editInput.onkeydown = function(){
+                if (event.key === "Enter") {
+                         //editBtn.click(); 
+                         editFn();
+                    }
+                };
+                
+                function editFn(){
+                    const newText = editInput.value.trim();
+                    //console.log("Guacamole"+newText+"NewText");
+                    textSpan.textContent = newText;
+                    
+                    editInput.replaceWith(textSpan);
+                    doneBtn.replaceWith(editBtn);
+                    taskCounter();
+                }
+            //editInput.focus();
+                 
+            //     
+                
+            }
+            
             const dltbtn = document.createElement("img");
             dltbtn.src = "icons8-trash-50.svg";
-            //dltbtn.textContent = "delete";
             dltbtn.className = "deleteBtn";
+            
             dltbtn.onclick = function(){
                 taskDiv.remove();
                 
@@ -97,6 +140,7 @@
 
             taskDiv.appendChild(checkBox);
             taskDiv.appendChild(textSpan);
+            taskDiv.appendChild(editBtn);
             taskDiv.appendChild(dltbtn);
             
             taskBody.appendChild(taskDiv);
@@ -116,6 +160,7 @@
             taskCounter();
             inpfld.value = "";
         }
+        // This is also the function for saving state
 
         function taskCounter(){
             const totaltsk = document.getElementsByClassName("taskDiv").length; 
