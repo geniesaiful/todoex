@@ -109,7 +109,9 @@
                          editFn();
                     }
                 };
-                
+                doneBtn.onclick = function(){
+                    editFn();
+                };
                 function editFn(){
                     const newText = editInput.value.trim();
                     //console.log("Guacamole"+newText+"NewText");
