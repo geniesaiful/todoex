@@ -29,6 +29,11 @@ h2{
     border: 2px solid lightgoldenrodyellow;
     border-radius: 6px;
 }
+.statusElementDiv{
+    display: flex;
+    flex-direction: column;
+}
+
 #task_body{
     width: 303px;
     background-color: aqua;
