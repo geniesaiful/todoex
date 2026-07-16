@@ -75,7 +75,11 @@ h2.header2{
     flex-direction: column;
     padding: 4px;
 }
-
+.prcntSpan{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
 #task_body{
     width: 800px;
     border: 0px solid aqua;
