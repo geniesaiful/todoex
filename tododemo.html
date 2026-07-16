@@ -84,24 +84,39 @@
                 taskCounter(); 
             };
             
-            
+            const dltbtn = document.createElement("img");
+            dltbtn.src = "delete-svgrepo-com.svg";
+            dltbtn.className = "deleteBtn";
+
             const editBtn = document.createElement("img");
             editBtn.src = "edit-pen-write-1-svgrepo-com.svg";
             editBtn.className="editBtn";
 
             editBtn.onclick = function(){
+
+                // When edit is pressed, the span is replaced with an input field 
+                // and the buttons will be replaced with done and cancel buttons.
+                // Done will save the text and replace the input field with the span.
+                // Cancel will just replace the intput to previous span again.
+                // Buttons will be replaced with the previous buttons.
                 
-                const doneBtn = document.createElement("button");
+                const doneBtn = document.createElement("img");
+                doneBtn.src = "ok-svgrepo-com.svg";
                 doneBtn.className="doneButton";
-                doneBtn.textContent="done";
+
+                const cancelBtn = document.createElement("img");
+                cancelBtn.src = "cancel-svgrepo-com.svg";
+                cancelBtn.className = "cancelButton";
+                
                 
                 const editInput = document.createElement("input");
                 editInput.type = "text";
                 editInput.className = "editInput";
-                editInput.value = textSpan.textContent;
+                editInput.value = textSpan.textContent; //takes the texts from span
                 
                 textSpan.replaceWith(editInput); // span is replaced with the input field
-                editBtn.replaceWith(doneBtn); 
+                editBtn.replaceWith(doneBtn);
+                dltbtn.replaceWith(cancelBtn);
                 
                 editInput.onkeydown = function(){
                 if (event.key === "Enter") {
@@ -112,20 +127,23 @@
                 doneBtn.onclick = function(){
                     editFn();
                 };
+                cancelBtn.onclick = function(){
+                    doneBtn.replaceWith(editBtn);
+                    cancelBtn.replaceWith(dltbtn);
+                    editInput.replaceWith(textSpan);
+                    taskCounter();
+                }
                 function editFn(){
                     const newText = editInput.value.trim();
                     textSpan.textContent = newText;
                     
                     editInput.replaceWith(textSpan);
                     doneBtn.replaceWith(editBtn);
+                    cancelBtn.replaceWith(dltbtn);
                     taskCounter();
                 }
                 
             }
-            
-            const dltbtn = document.createElement("img");
-            dltbtn.src = "icons8-trash-50.svg";
-            dltbtn.className = "deleteBtn";
             
             dltbtn.onclick = function(){
                 taskDiv.remove();
