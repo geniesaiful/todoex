@@ -64,7 +64,6 @@ h2.header2{
     background-color: aqua;
     padding: 0px 12px 0 12px;
 }
-
 .statusIcon{
     display: flex;
     width: 28px;          
@@ -80,16 +79,22 @@ h2.header2{
     flex-direction: row;
     align-items: baseline;
 }
+
 #task_body{
     width: 800px;
     border: 0px solid aqua;
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 }
-#taskBodyHead{
+
+.taskBodyHead{
     background-color:aqua;
     padding: 4px;
-    text-align: center;
 }
+.taskBodyBottom{
+    background-color:aqua;
+    padding: 4px;
+}
+
 .taskDiv{
     display: flex;
     align-items: center;
