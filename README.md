@@ -37,4 +37,4 @@
 
 - [ ] Dark/Light mode
 
-- [ ]Responsive design for mobile and desktop
+- [ ] Responsive design for mobile and desktop
