@@ -17,10 +17,10 @@ function addTask(){
 function createRow(text, isChecked) {
     const taskBody = document.getElementById("task_body");
     
-    const noTaskMsg = document.getElementById("noTask");
-    if(noTaskMsg){
-        noTaskMsg.remove();
-    }
+    // const noTaskMsg = document.getElementById("noTask");
+    // if(noTaskMsg){
+    //     noTaskMsg.remove();
+    // }
 
     const taskDiv = document.createElement("div");
     taskDiv.className = "taskDiv";
@@ -128,8 +128,18 @@ function createRow(text, isChecked) {
 
 // This is also the function for saving state
 function taskCounter(){
-    const totaltsk = document.getElementsByClassName("taskDiv").length; 
+     
     const allCkbox = document.querySelectorAll('.taskDiv input[type = "checkbox"]'); 
+    let totaltsk = document.getElementsByClassName("taskDiv").length;
+    
+    const noTaskMsg = document.getElementById("noTask");
+    
+    if (totaltsk === 0) {
+        noTaskMsg.style.display = "block"; // element's dispaly property can hide or unhide element.
+    } else {
+        noTaskMsg.style.display = "none";
+    }
+    
     
     let compCkbox = 0;
     const saveArray = [];
