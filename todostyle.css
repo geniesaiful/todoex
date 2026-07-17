@@ -102,7 +102,7 @@ h2.header2{
     gap: 8px;
 }
 .taskBodyBottom{
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: flex-start;
     align-items: start;
