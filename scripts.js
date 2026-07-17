@@ -1,0 +1,166 @@
+function createRow(text, isChecked) {
+            const taskBody = document.getElementById("task_body");
+            
+            const noTaskMsg = document.getElementById("noTask");
+            if(noTaskMsg){
+                noTaskMsg.remove();
+            }
+
+            const taskDiv = document.createElement("div");
+            taskDiv.className = "taskDiv";
+            
+            const checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.checked = isChecked;
+
+            const textSpan = document.createElement("span");
+            textSpan.textContent = text;
+            textSpan.className = "todotextspan"; // Gave a class name so that can be targetet.
+            
+            // check on the loading time
+            if (isChecked) {
+                textSpan.style.textDecoration = "line-through";
+            }
+
+            checkBox.onchange = function (){
+                if(checkBox.checked){
+                    textSpan.style.textDecoration = "line-through";
+                }
+                else{
+                    textSpan.style.textDecoration = "none";
+                }
+                taskCounter(); 
+            };
+            
+            const dltbtn = document.createElement("img");
+            dltbtn.src = "delete-svgrepo-com.svg";
+            dltbtn.className = "deleteBtn";
+
+            const editBtn = document.createElement("img");
+            editBtn.src = "edit-pen-write-1-svgrepo-com.svg";
+            editBtn.className="editBtn";
+
+            editBtn.onclick = function(){
+
+                // When edit is pressed, the span is replaced with an input field 
+                // and the buttons will be replaced with done and cancel buttons.
+                // Done will save the text and replace the input field with the span.
+                // Cancel will just replace the intput to previous span again.
+                // Buttons will be replaced with the previous buttons.
+                
+                const doneBtn = document.createElement("img");
+                doneBtn.src = "ok-svgrepo-com.svg";
+                doneBtn.className="doneButton";
+
+                const cancelBtn = document.createElement("img");
+                cancelBtn.src = "cancel-svgrepo-com.svg";
+                cancelBtn.className = "cancelButton";
+                
+                
+                const editInput = document.createElement("input");
+                editInput.type = "text";
+                editInput.className = "editInput";
+                editInput.value = textSpan.textContent; //takes the texts from span
+                
+                textSpan.replaceWith(editInput); // span is replaced with the input field
+                editBtn.replaceWith(doneBtn);
+                dltbtn.replaceWith(cancelBtn);
+                
+                editInput.onkeydown = function(){
+                if (event.key === "Enter") {
+                         //editBtn.click(); 
+                         editFn();
+                    }
+                };
+                doneBtn.onclick = function(){
+                    editFn();
+                };
+                cancelBtn.onclick = function(){
+                    doneBtn.replaceWith(editBtn);
+                    cancelBtn.replaceWith(dltbtn);
+                    editInput.replaceWith(textSpan);
+                    taskCounter();
+                }
+                function editFn(){
+                    const newText = editInput.value.trim();
+                    textSpan.textContent = newText;
+                    
+                    editInput.replaceWith(textSpan);
+                    doneBtn.replaceWith(editBtn);
+                    cancelBtn.replaceWith(dltbtn);
+                    taskCounter();
+                }
+                
+            }
+            
+            dltbtn.onclick = function(){
+                taskDiv.remove();
+                
+                if (taskBody.children.length === 0) {
+                    taskBody.innerHTML = '<p id="noTask">Empty</p>';
+                }
+                taskCounter();
+            };
+
+            taskDiv.appendChild(checkBox);
+            taskDiv.appendChild(textSpan);
+            taskDiv.appendChild(editBtn);
+            taskDiv.appendChild(dltbtn);
+            
+            taskBody.appendChild(taskDiv);
+        }
+
+        function addTask(){
+            const inpfld = document.getElementById("inpfield");
+            const inptxt = inpfld.value.trim();
+            
+            if (inptxt === "") {
+                alert("Write something!");
+                return;
+            }
+            
+            createRow(inptxt, false);
+            
+            taskCounter();
+            inpfld.value = "";
+        }
+        // This is also the function for saving state
+
+        function taskCounter(){
+            const totaltsk = document.getElementsByClassName("taskDiv").length; 
+            const allCkbox = document.querySelectorAll('.taskDiv input[type = "checkbox"]'); 
+            
+            let compCkbox = 0;
+            const saveArray = [];
+            
+            for(let i=0; i<allCkbox.length; i++){
+                if(allCkbox[i].checked){
+                    compCkbox++;
+                }
+                const spanText = allCkbox[i].parentElement.querySelector("span").textContent;
+                saveArray.push({ text: spanText, checked: allCkbox[i].checked });
+            }
+
+            localStorage.setItem("savedList", JSON.stringify(saveArray));
+
+            const remaingtsk = totaltsk - compCkbox;
+            let taskRatio = ((compCkbox / totaltsk) * 100).toFixed(2); // because 1/3 goes 0.333333... so this will roud up until tow decimal 33.33
+            
+            //console.log(taskRatio);
+
+            document.getElementById("totalTask").textContent = totaltsk;
+            document.getElementById("doneTask").textContent = compCkbox;
+            document.getElementById("remTask").textContent = remaingtsk;
+            document.getElementById("taskRatio").textContent = taskRatio;
+        }
+
+        function loadTasks() {
+            const rawData = localStorage.getItem("savedList");
+            if (!rawData) return; 
+            
+            const parsedArray = JSON.parse(rawData);
+            for (let i = 0; i < parsedArray.length; i++) {
+                createRow(parsedArray[i].text, parsedArray[i].checked);
+            }
+            taskCounter();
+        }

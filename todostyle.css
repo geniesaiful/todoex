@@ -87,12 +87,28 @@ h2.header2{
 }
 
 .taskBodyHead{
+    display: flex;
+    flex-direction: row;
     background-color:aqua;
     padding: 4px;
 }
+.headerBottomText{
+    border-color:azure;
+    border-width: 1px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+    background-color:rgba(240, 255, 255, 0.79);
+    padding: 0px 12px 0 12px;
+    gap: 8px;
+}
 .taskBodyBottom{
-    background-color:aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
+    background-color:bisque;
     padding: 4px;
+    width: 800px; // the "body" section makes this div centerized. so i make them same width as other elements, thus the alinging the text can start from left.
 }
 
 .taskDiv{
@@ -123,7 +139,6 @@ h2.header2{
 .deleteBtn {
     width: 20px;          
     height: 20px;         
-/*    margin-left: auto;    /* Pushes the icon to the far right of the task row */
 }
 .doneButton{
     width: 20px;
