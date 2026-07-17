@@ -9,6 +9,7 @@
 - [x] Prevent empty tasks.
 - [x] View Tasks.
     - Display all added tasks in a list.
+    - Show a message when no tasks exist.
 - [x] Complete Task
     - Mark a task as completed using a checkbox.
     - Completed tasks should have a strikethrough style.
