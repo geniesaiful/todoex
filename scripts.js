@@ -1,3 +1,19 @@
+function addTask(){
+    const inpfld = document.getElementById("inpfield");
+    const inptxt = inpfld.value.trim();
+    
+    if (inptxt === "") {
+        alert("Write something!");
+        return;
+    }
+    
+    createRow(inptxt, false);
+    
+    taskCounter();
+    inpfld.value = "";
+}
+
+
 function createRow(text, isChecked) {
     const taskBody = document.getElementById("task_body");
     
@@ -108,21 +124,6 @@ function createRow(text, isChecked) {
     taskDiv.appendChild(dltbtn);
     
     taskBody.appendChild(taskDiv);
-}
-
-function addTask(){
-    const inpfld = document.getElementById("inpfield");
-    const inptxt = inpfld.value.trim();
-    
-    if (inptxt === "") {
-        alert("Write something!");
-        return;
-    }
-    
-    createRow(inptxt, false);
-    
-    taskCounter();
-    inpfld.value = "";
 }
 
 // This is also the function for saving state
