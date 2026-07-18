@@ -33,7 +33,7 @@
 
 - [x] Filter (All, Active, Completed)
 
-- [ ] Clear completed tasks
+- [x] Clear completed tasks
 
 - [ ] Dark/Light mode
 
