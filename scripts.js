@@ -84,7 +84,6 @@ function createRow(text, isChecked) {
         
         editInput.onkeydown = function(){
         if (event.key === "Enter") {
-                    //editBtn.click(); 
                     editFn();
             }
         };
@@ -99,9 +98,16 @@ function createRow(text, isChecked) {
         }
         function editFn(){
             const newText = editInput.value.trim();
-            textSpan.textContent = newText;
-            
-            editInput.replaceWith(textSpan);
+            if(newText===""){
+                alert("Write something!!");
+                textSpan.textContent = newText;
+                editInput.replaceWith(textSpan);
+            }
+            else{
+                textSpan.textContent = newText;
+                editInput.replaceWith(textSpan);
+            }
+       
             doneBtn.replaceWith(editBtn);
             cancelBtn.replaceWith(dltbtn);
             taskCounter();
