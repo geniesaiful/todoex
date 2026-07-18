@@ -49,11 +49,11 @@ function createRow(text, isChecked) {
     };
     
     const dltbtn = document.createElement("img");
-    dltbtn.src = "delete-svgrepo-com.svg";
+    dltbtn.src = "images/delete-svgrepo-com.svg";
     dltbtn.className = "deleteBtn";
 
     const editBtn = document.createElement("img");
-    editBtn.src = "edit-pen-write-1-svgrepo-com.svg";
+    editBtn.src = "images/edit-pen-write-1-svgrepo-com.svg";
     editBtn.className="editBtn";
 
     editBtn.onclick = function(){
@@ -65,11 +65,11 @@ function createRow(text, isChecked) {
         // Buttons will be replaced with the previous buttons.
         
         const doneBtn = document.createElement("img");
-        doneBtn.src = "ok-svgrepo-com.svg";
+        doneBtn.src = "images/ok-svgrepo-com.svg";
         doneBtn.className="doneButton";
 
         const cancelBtn = document.createElement("img");
-        cancelBtn.src = "cancel-svgrepo-com.svg";
+        cancelBtn.src = "images/cancel-svgrepo-com.svg";
         cancelBtn.className = "cancelButton";
         
         
