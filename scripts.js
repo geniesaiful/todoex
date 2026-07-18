@@ -100,7 +100,7 @@ function createRow(text, isChecked) {
             const newText = editInput.value.trim();
             if(newText===""){
                 alert("Write something!!");
-                textSpan.textContent = newText;
+                //textSpan.textContent = newText;
                 editInput.replaceWith(textSpan);
             }
             else{
