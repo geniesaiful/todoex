@@ -190,7 +190,7 @@ function filterTasks(filterType) {
         
         const taskRow = allTasks[i]; // take one task in taskrow variable
 
-        const checkBox = taskRow.querySelector('input[type="checkbox"]'); //check the checkbox is ticked
+        const checkBox = taskRow.querySelector('input[type="checkbox"]'); //take the checkbox form the row.
 
         if (filterType === "all") {
             
@@ -212,4 +212,22 @@ function filterTasks(filterType) {
             }
         }
     }
+}
+
+function clearChecked(){
+    // so if we delete a task using getElements, the problem arises that the taskrow will be deleted live while the for loop is still running!
+    // it causes the problem of shifting the index. meaning the allTasks[2] will become allTasks[1], while the i will be in 2.
+    // querySelector method will return a snapshot, a static nodelist, which stays inside the javascript until the loop is done.
+    const allTasks = document.querySelectorAll(".taskDiv");
+    
+    for(let i=0; i<allTasks.length; i++){
+        const taskRow = allTasks[i];
+        const checkBox = taskRow.querySelector('input[type="checkbox"]');
+        if(checkBox.checked){
+            taskRow.remove();
+            console.log("Cleared Task" + (i+1));
+        }
+    }
+    taskCounter();
+
 }
