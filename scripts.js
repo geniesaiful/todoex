@@ -250,5 +250,7 @@ function nightMode(){
         const taskRow = allTasks[i];
         taskRow.classList.add("dark-theme");        
     }
+ 
     taskCounter();
+// getElementsByclassName etc will return kind of array. so if there is a single element we can use getELementbyId instead.
 }
