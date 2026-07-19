@@ -35,6 +35,6 @@
 
 - [x] Clear completed tasks
 
-- [ ] Dark/Light mode
+- [x] Dark/Light mode
 
 - [ ] Responsive design for mobile and desktop
