@@ -239,18 +239,20 @@ function clearChecked(){
 
 }
 function nightMode(){
-    const allTasks = document.getElementsByClassName("taskDiv");
-    document.body.style.backgroundColor = "black";
-    document.querySelector('h2').style.color= "white";
-    //bodyAll.classList.add("dark-theme");
-    //titleText.classList.add("dark-theme");
-    console.log("cchecked");
-    for(let i=0;i<allTasks.length; i++)
-    {
-        const taskRow = allTasks[i];
-        taskRow.classList.add("dark-theme");        
-    }
+    // const allTasks = document.getElementsByClassName("taskDiv");
+    // document.body.style.backgroundColor = "black";
+    // document.querySelector('h2').style.color= "white";
+    // //bodyAll.classList.add("dark-theme");
+    // //titleText.classList.add("dark-theme");
+    // console.log("cchecked");
+    // for(let i=0;i<allTasks.length; i++)
+    // {
+    //     const taskRow = allTasks[i];
+    //     taskRow.classList.add("dark-theme");        
+    // }
  
-    taskCounter();
-// getElementsByclassName etc will return kind of array. so if there is a single element we can use getELementbyId instead.
+    // taskCounter();
+    // getElementsByclassName etc will return kind of array. so if there is a single element we can use getELementbyId instead.
+
+    document.body.classList.toggle("darkMode");
 }

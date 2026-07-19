@@ -1,3 +1,13 @@
+:root{
+    --genBgColor: #00ffff;
+    --genTextColor: #000000;    
+    --sectionBgColor: #f0ffff;
+    --taskBgColor: #f6f4e9;
+    --headerTextBg: #d0f2f2; 
+    --headerText:#181616;
+    
+}
+
 *{
     box-sizing: border-box;
 }
@@ -6,46 +16,51 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color:aliceblue;
+    background-color: var(--genBgColor);
 }
-.bodyClass{
+body.darkMode{
+    --genBgColor: #0e1c1c;
+    --genTextColor: #82d6f7;    
+    --sectionBgColor: #213f3f;
+    --taskBgColor: #27443f;
+    --headerTextBg: #333838; 
+    --headerText:#cebfbf;
+}
+/* .bodyClass{
     background-color: #ffffff;
-}
+} */
 .environment{
     display: flex;
     flex-direction: row-reverse;
     width: 800px;
-}
-.dark-theme {
-    background-color: #222222;
-    color: #ffffff;
+    color: var(--genTextColor)
 }
 h2.header2{
     display: flex;
     width: 800px;
     gap: 12px;
+    color: var(--genTextColor);
+    text-shadow: 0 0 2px var(--genTextColor);
 }
 .headerImg {
     width: 32px;               
     height: 32px;
     /*object-fit: contain;       /* Keeps the image from stretching or distorting */
 }
-.titleSpan{
-/*  display: flex;
-    flex-direction: row; */
+/* .titleSpan{
+
     text-shadow: 0 0 2px gray;
-/*    color: red;*/
-}
+} */
 
 #inputDiv{
     display: flex;
     margin: 10px;
     width: 800px;
-    border: 1px solid aqua;
+    border: 1px solid #00ffff;
     border-radius: 2px;
     padding: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+    background-color: var(--sectionBgColor)
 }
 #inpfield{
     flex-grow: 1; /* text field grows to next item*/
@@ -60,6 +75,7 @@ h2.header2{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding:2px;
     gap: 8px; /*gap between elements */
+    background-color: var(--sectionBgColor);
 }
 .statusElementDiv{
     display: flex;
@@ -72,7 +88,8 @@ h2.header2{
     border-width: 1px;
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.18);
-    background-color: aqua;
+    background-color: var(--sectionBgColor);
+    color: var(--genTextColor);
     padding: 0px 12px 0 12px;
 }
 .statusIcon{
@@ -115,15 +132,16 @@ h2.header2{
     border-width: 1px;
     border-radius: 12px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
-    background-color:rgba(240, 255, 255, 0.79);
+    background-color:var(--headerTextBg);
+    color: var(--headerText);
     padding: 0px 12px 0 12px;
     gap: 8px;
     cursor: default;
 }
-.headerText:hover{
+/* .headerText:hover{
     background-color: rgba(255, 0, 0, 0.65);
     color: white;
-}
+} */
 .taskBodyBottom{
     /* display: none;
     flex-direction: row;
@@ -143,7 +161,8 @@ h2.header2{
     margin-top: 4px;
     padding: 10px;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
-    /*background-color: blanchedalmond;*/
+    background-color: var(--taskBgColor);
+    color: var(--genTextColor);
 }
 .todotextspan{
     margin-left: 8px;    
