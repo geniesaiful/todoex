@@ -1,7 +1,7 @@
 :root{
     --genBgColor: #00ffff;
     --genTextColor: #000000;    
-    --sectionBgColor: #f0ffff;
+    --sectionBgColor:#08eded;
     --taskBgColor: #00eeee;
     --headerTextBg: #d0f2f2; 
     --headerText:#181616;
@@ -38,13 +38,16 @@ body.darkMode{
 h2.header2{
     display: flex;
     width: 800px;
-    gap: 12px;
+    padding: 12px;
+    gap: 8px;
+    justify-content: center;
+    /*background-color: #7daa93;*/
     color: var(--genTextColor);
     text-shadow: 0 0 2px var(--genTextColor);
 }
 .headerImg {
-    width: 32px;               
-    height: 32px;
+    width: 28px;               
+    height: 28px;
     /*object-fit: contain;       /* Keeps the image from stretching or distorting */
 }
 /* .titleSpan{
@@ -54,16 +57,17 @@ h2.header2{
 
 #inputDiv{
     display: flex;
-    margin: 10px;
+    margin: 1px;
     width: 800px;
     border: 1px hidden #00ffff;
     border-radius: 6px;
-    padding: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--sectionBgColor)
 }
 #inpfield{
     flex-grow: 1; /* text field grows to next item*/
+    height: fit-content;
 }
 #statusDiv{
     display: flex;
@@ -72,7 +76,7 @@ h2.header2{
     text-align: center;
     width: 800px;
     border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.18);
     padding:2px;
     gap: 8px; /*gap between elements */
     background-color: var(--sectionBgColor);
@@ -86,9 +90,9 @@ h2.header2{
     border-style: hidden;
     border-color:azure;
     border-width: 1px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 6px 20px 0 rgba(0, 0, 0, 0.18);
-    background-color: var(--sectionBgColor);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+    background-color:(--sectionBgColor);
     color: var(--genTextColor);
     padding: 0px 12px 0 12px;
 }
@@ -160,6 +164,7 @@ h2.header2{
     width: 800px;       
     margin-top: 4px;
     padding: 10px;
+    /*border: 10px solid #00ffff;*/
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
     background-color: var(--taskBgColor);
     color: var(--genTextColor);
